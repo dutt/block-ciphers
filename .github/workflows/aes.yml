@@ -23,8 +23,8 @@ jobs:
     strategy:
       matrix:
         rust:
-          - 1.41.0 # MSRV
-          - stable
+          #- 1.41.0 # MSRV
+          - beta
         target:
           - thumbv7em-none-eabi
           - wasm32-unknown-unknown
@@ -49,18 +49,18 @@ jobs:
       matrix:
         include:
           # 32-bit Linux
+#          - target: i686-unknown-linux-gnu
+#            rust: 1.41.0 # MSRV
+#            deps: sudo apt install gcc-multilib
           - target: i686-unknown-linux-gnu
-            rust: 1.41.0 # MSRV
-            deps: sudo apt install gcc-multilib
-          - target: i686-unknown-linux-gnu
-            rust: stable
+            rust: beta
             deps: sudo apt install gcc-multilib
 
           # 64-bit Linux
+#          - target: x86_64-unknown-linux-gnu
+#            rust: 1.41.0 # MSRV
           - target: x86_64-unknown-linux-gnu
-            rust: 1.41.0 # MSRV
-          - target: x86_64-unknown-linux-gnu
-            rust: stable
+            rust: beta
     steps:
       - uses: actions/checkout@v1
       - uses: actions-rs/toolchain@v1
@@ -88,18 +88,18 @@ jobs:
       matrix:
         include:
           # 32-bit Linux
+#          - target: i686-unknown-linux-gnu
+#            rust: 1.41.0 # MSRV
+#            deps: sudo apt install gcc-multilib
           - target: i686-unknown-linux-gnu
-            rust: 1.41.0 # MSRV
-            deps: sudo apt install gcc-multilib
-          - target: i686-unknown-linux-gnu
-            rust: stable
+            rust: beta
             deps: sudo apt install gcc-multilib
 
           # 64-bit Linux
+#          - target: x86_64-unknown-linux-gnu
+#            rust: 1.41.0 # MSRV
           - target: x86_64-unknown-linux-gnu
-            rust: 1.41.0 # MSRV
-          - target: x86_64-unknown-linux-gnu
-            rust: stable
+            rust: beta
     steps:
       - uses: actions/checkout@v1
       - uses: actions-rs/toolchain@v1
@@ -122,16 +122,16 @@ jobs:
       matrix:
         include:
           # ARM64
+#          - target: aarch64-unknown-linux-gnu
+#            rust: 1.41.0 # MSRV
           - target: aarch64-unknown-linux-gnu
-            rust: 1.41.0 # MSRV
-          - target: aarch64-unknown-linux-gnu
-            rust: stable
+            rust: beta
 
           # PPC32
+#          - target: powerpc-unknown-linux-gnu
+#            rust: 1.41.0 # MSRV
           - target: powerpc-unknown-linux-gnu
-            rust: 1.41.0 # MSRV
-          - target: powerpc-unknown-linux-gnu
-            rust: stable
+            rust: beta
 
     runs-on: ubuntu-latest
     steps:
